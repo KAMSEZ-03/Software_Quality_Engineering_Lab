@@ -1,0 +1,86 @@
+Software Quality Engineering Lab Assignment
+Name: Muhammad Khurram Shehzad 
+Reg #: FA23-BSE-070 
+Class: BSE-6B
+Topic: Test Cases for Password Reset Functionality 
+Testing Environment: Windows, Chrome 
+Tested By: Muhammad Khurram Shehzad 
+Date: May 13, 2026
+
+Test Case 1: Password Test — Valid
+Test Case ID: CU1-1.1
+Test Case Name: Successful Password Reset via Email/OTP/Old Password
+Test Data: Registered Old Password: 12345 New Password: 126@ah
+Pre-Condition:
+User is logged in to the system.
+User is on the “Forgot Password” page.
+Action Performed by User and System Response
+User enters their old password. System accepts the old password and displays it in hidden form using dots.
+User enters their new password. System accepts the new password.
+User re-enters the new password and clicks on the OK button. System updates the password in the database and displays “Password changed successfully.” Then it redirects the user to the login page.
+
+Expected Result: System resets the password successfully and navigates the user back to the login screen with a success message.
+Actual Result: Application displayed success message and redirected to login page as expected.
+Test Case Status: Pass
+
+Test Case 2: Password Test — Invalid
+Test Case ID: CU1-1.2
+Test Case Name: Unsuccessful Password Reset with Incorrect Old Password
+Test Data: Registered Old Password: 12345 Incorrect Old Password: wrongpass New Password: 126@ah
+Pre-Condition:
+User is logged in to the system.
+User is on the “Forgot Password” page.
+Action Performed by User and System Response
+User enters an incorrect old password. System displays “Incorrect old password. Please try again.”
+User enters their new password. No changes are made.
+User re-enters the new password and clicks on the OK button. System does not update the password and remains on the same page.
+
+Expected Result: System does not change the password and shows an error message for incorrect old password.
+Actual Result: Appropriate error message displayed. Password remains unchanged.
+Test Case Status: Pass
+
+Test Case 3: Password Test — Mismatch
+Test Case ID: CU1-1.3
+Test Case Name: Password Reset Failure on Mismatch
+Test Data: Registered Old Password: 12345 New Password: 126@ah Confirm Password: 126@ab
+Pre-Condition:
+User is logged in to the system.
+User is on the “Forgot Password” page.
+Action Performed by User and System Response
+User enters their old password. System accepts the old password and displays it in hidden form using dots.
+User enters their new password. New password is accepted.
+User re-enters a different password and clicks on the OK button. System shows “Passwords do not match. Please try again.”
+
+Expected Result: System should not update the password and should show a mismatch error.
+Actual Result: Mismatch error displayed. Password not changed.
+Test Case Status: Pass
+
+Test Case 4: Password Test — Empty New Password
+Test Case ID: CU1-1.4
+Test Case Name: Password Reset with Empty New Password
+Test Data: Registered Old Password: 12345 New Password: Empty
+Pre-Condition:
+User is logged in to the system.
+User is on the “Forgot Password” page.
+Action Performed by User and System Response
+User enters their old password. System accepts the old password and displays it in hidden form using dots.
+User leaves the new password field empty. System asks the user to enter a new password.
+User re-enters the new password field empty and clicks on the OK button. System shows “New password cannot be empty.”
+
+Expected Result: System shows validation message for empty new password and does not update the password.
+Actual Result: Appropriate validation message displayed. Password remains unchanged.
+Test Case Status: Pass
+
+Test Case 5: Password Test — Cancel Navigation
+Test Case ID: CU1-1.5
+Test Case Name: Cancel Password Reset Navigation
+Test Data: Registered User clicks on Cancel button.
+Pre-Condition:
+User is logged in to the system.
+User is on the “Forgot Password” page.
+Action Performed by User and System Response
+User clicks on the Cancel button on the Password Reset page. System redirects the user to the login page.
+
+Expected Result: User should be redirected to the login page.
+Actual Result: User redirected to login page as expected.
+Test Case Status: Pass
